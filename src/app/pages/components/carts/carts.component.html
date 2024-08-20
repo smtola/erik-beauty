@@ -1,155 +1,149 @@
 <div class="pt-[10vh] xl:pt-[14vh] bg-white">
-    <div class="flex w-full justify-center items-start gap-[1vw] px-3">
-      <div class="card rounded-box grid h-20 flex-grow place-items-center">
-        <div class="w-full max-w-screen-lg mx-auto">
-          <div class="flex justify-between text-[#7f5345]">
-            <h1 class="text-2xl font-bold mb-4">Your Cart</h1>
-            <a href="/" class="flex gap-2 justify-center items-center hover:underline">
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7f5345" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                  <path d="M5 12l14 0" />
-                  <path d="M5 12l4 4" />
-                  <path d="M5 12l4 -4" />
-                </svg>
-              </span>
-              <p class="text-[16px]">back home</p>
-            </a>
-          </div>
-          <div *ngIf="cartItems.length === 0" class="text-center text-gray-500 flex justify-center items-center mt-10">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notes-off" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7f5345" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M7 3h10a2 2 0 0 1 2 2v10m0 4a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-14" />
-              <path d="M11 7h4" />
-              <path d="M9 11h2" />
-              <path d="M9 15h4" />
-              <path d="M3 3l18 18" />
-            </svg>
-            <p >Your cart is empty.</p>
-          </div>
-    
-          <div *ngIf="cartItems.length > 0" class="overflow-x-auto">
-            <table class="table">
-              <!-- head -->
-              <thead>
-                <tr>
-                  <th class="text-[16px]">
-                    #
-                  </th>
-                  <th class="text-[16px]">Products</th>
-                  <th class="text-[16px]">Items</th>
-                  <th class="text-[16px]">Action</th>
-                  <th class="text-[16px]"></th>
-                </tr>
-              </thead>
-             
-              <tbody >
-                <!-- row 1 -->
-                <tr *ngFor="let item of cartItems;index as i;">
-                  <th>
-                    <label>
-                      {{i}}
-                    </label>
-                  </th>
-                  <td>
-                    <div class="flex items-center gap-3">
-                      <div class="avatar">
-                        <div class="mask mask-squircle h-12 w-12">
-                          <img
-                            [src]="item.sourceImg"
-                            alt="item.name" />
-                        </div>
-                      </div>
-                      <div>
-                        <div class="font-bold">{{item.name}}</div>
-                        <div class="text-sm opacity-50">${{item.price}}</div>
+    <div class="flex max-sm:flex-wrap max-sm:gap-y-[10vh] w-full justify-center items-start gap-[1vw] px-3">
+      <div class="w-full">
+        <div class="flex justify-between text-[#7f5345]">
+          <h1 class="text-2xl font-bold mb-4">Your Cart</h1>
+          <a href="/" class="flex gap-2 justify-center items-center hover:underline">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7f5345" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M5 12l14 0" />
+                <path d="M5 12l4 4" />
+                <path d="M5 12l4 -4" />
+              </svg>
+            </span>
+            <p class="text-[16px]">back home</p>
+          </a>
+        </div>
+        <div *ngIf="cartItems.length === 0" class="text-center text-gray-500 flex justify-center items-center mt-10">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notes-off" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7f5345" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M7 3h10a2 2 0 0 1 2 2v10m0 4a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-14" />
+            <path d="M11 7h4" />
+            <path d="M9 11h2" />
+            <path d="M9 15h4" />
+            <path d="M3 3l18 18" />
+          </svg>
+          <p >Your cart is empty.</p>
+        </div>
+  
+        <div *ngIf="cartItems.length > 0" class="overflow-x-auto">
+          <table class="table">
+            <!-- head -->
+            <thead>
+              <tr>
+                <th class="text-[16px]">
+                  #
+                </th>
+                <th class="text-[16px]">Products</th>
+                <th class="text-[16px]">Items</th>
+                <th class="text-[16px]">Action</th>
+                <th class="text-[16px]"></th>
+              </tr>
+            </thead>
+            
+            <tbody >
+              <!-- row 1 -->
+              <tr *ngFor="let item of cartItems;index as i;">
+                <th>
+                  <label>
+                    {{i}}
+                  </label>
+                </th>
+                <td>
+                  <div class="flex items-center gap-3">
+                    <div class="avatar">
+                      <div class="mask mask-squircle h-12 w-12">
+                        <img
+                          [src]="item.sourceImg"
+                          alt="item.name" />
                       </div>
                     </div>
-                  </td>
-                  <td>
-                    <span class="badge badge-ghost badge-sm">{{item.quantity}}</span>
-                  </td>
-                  <th>
-                    <button 
-                      (click)="removeFromCart(item.id)"
-                        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-                      >
-                        Remove
-                      </button>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
-            <div class="mt-4 flex justify-between items-center">
-              <h2 class="text-xl font-semibold">Total Amount: ${{ totalAmount }}</h2>
-              <button 
-                (click)="checkout()"
-                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-              >
-                Checkout
-              </button>
-            </div>
+                    <div>
+                      <div class="font-bold truncate ...">{{item.name}}</div>
+                      <div class="text-sm opacity-50">${{item.price}}</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <span class="badge badge-ghost badge-sm">{{item.quantity}}</span>
+                </td>
+                <th>
+                  <button 
+                    (click)="removeFromCart(item.id)"
+                      class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                    >
+                      Remove
+                    </button>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+          <div class="mt-4 flex justify-between items-center">
+            <h2 class="text-xl font-semibold">Total Amount: ${{ totalAmount }}</h2>
+            <button 
+              (click)="checkout()"
+              class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+              Checkout
+            </button>
           </div>
         </div>
       </div>
-      
-      <div *ngIf="isCheckout"
-      class="card rounded-box grid h-20 flex-grow place-items-center">
-        <div class="w-full max-w-md mx-auto">
-          <h1 class="text-2xl font-bold mb-4">Customer Information</h1>
-          <form (ngSubmit)="onSubmit()" class="space-y-4">
-            <div>
-              <label class="block text-gray-700">Name</label>
-              <input 
-                type="text" 
-                [(ngModel)]="customer.name" 
-                name="name" 
-                required
-                class="w-full p-2 border border-gray-300 rounded"
-              />
-            </div>
-            <div>
-              <label class="block text-gray-700">Email</label>
-              <input 
-                type="email" 
-                [(ngModel)]="customer.email" 
-                name="email" 
-                required
-                class="w-full p-2 border border-gray-300 rounded"
-              />
-            </div>
-            <div>
-              <label class="block text-gray-700">Phone</label>
-              <input 
-                type="tel" 
-                [(ngModel)]="customer.phone" 
-                name="phone" 
-                required
-                class="w-full p-2 border border-gray-300 rounded"
-              />
-            </div>
-            <div>
-              <label class="block text-gray-700">Address</label>
-              <textarea 
-                [(ngModel)]="customer.address" 
-                name="address" 
-                required
-                class="w-full p-2 border border-gray-300 rounded"
-              ></textarea>
-            </div>
-            <button 
-              type="submit"
-              class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-            >
-              Submit
-            </button>
-            <button (click)="onCancel()" 
-              class="bg-red-500 text-white px-4 py-2 m-3 rounded hover:bg-red-600"
-            >
-              Cancel
-            </button>
-          </form>
-        </div>
+      <div *ngIf="isCheckout" class="w-full">
+        <h1 class="text-2xl font-bold mb-4">Customer Information</h1>
+        <form (ngSubmit)="onSubmit()" class="space-y-4">
+          <div>
+            <label class="block text-gray-700">Name</label>
+            <input 
+              type="text" 
+              [(ngModel)]="customer.name" 
+              name="name" 
+              required
+              class="w-full p-2 border border-gray-300 rounded"
+            />
+          </div>
+          <div>
+            <label class="block text-gray-700">Email</label>
+            <input 
+              type="email" 
+              [(ngModel)]="customer.email" 
+              name="email" 
+              required
+              class="w-full p-2 border border-gray-300 rounded"
+            />
+          </div>
+          <div>
+            <label class="block text-gray-700">Phone</label>
+            <input 
+              type="tel" 
+              [(ngModel)]="customer.phone" 
+              name="phone" 
+              required
+              class="w-full p-2 border border-gray-300 rounded"
+            />
+          </div>
+          <div>
+            <label class="block text-gray-700">Address</label>
+            <textarea 
+              [(ngModel)]="customer.address" 
+              name="address" 
+              required
+              class="w-full p-2 border border-gray-300 rounded"
+            ></textarea>
+          </div>
+          <button 
+            type="submit"
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Submit
+          </button>
+          <button (click)="onCancel()" 
+            class="bg-red-500 text-white px-4 py-2 m-3 rounded hover:bg-red-600"
+          >
+            Cancel
+          </button>
+        </form>
       </div>
     </div>
 </div>
