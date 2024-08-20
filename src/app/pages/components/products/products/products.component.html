@@ -1,0 +1,43 @@
+<div 
+    class="grid grid-cols-2 lg:grid-cols-4 gap-[3vw] md:gap-[2vw] xl:gap-[1vw] py-5 items-start justify-center"
+    >
+        <div
+            class="w-full"
+            *ngFor="let items of products"
+        >
+        <div class="w-full shadow-lg overflow-hidden rounded-[2rem] md:rounded-[3rem] xl:rounded-[4rem]">
+            <a href="#" class="hover:scale-[1.2]">
+                <img [src]="items.sourceImg" class="rounded-[2rem] md:rounded-[3rem] xl:rounded-[4rem] w-full h-full object-cover hover:scale-[1.2] hover:brightness-50 transition-all duration-500">
+            </a>
+        </div>
+        <div class="flex items-center justify-between h-[10vh] px-2 gap-1">
+            <div>
+                <h3 class="col-span-2 text-[14px] md:text-[18px] font-semibold text-[#ffffff] py-3">{{items.name}}</h3>
+                <p class="text-[11px] md:text-[16px] font-semibold text-[#ffffff]">$ {{items.price}}</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <button 
+                (click)="removeFromCart(items)"
+                [disabled]="!productQuantities[items.id]"
+                *ngIf="qtyExist && productQuantities[items.id]"
+                class="hover:bg-white/30 focus:scale-[1.2] backdrop-blur-[10px] bg-opacity-100 rounded-full transition-all duration-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-minus w-[16px] h-[16px] md:w-[28px] md:h-[28px]" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M5 12l14 0" />
+                    </svg>
+                </button>
+                <p *ngIf="qtyExist && productQuantities[items.id]"
+                class="text-[20px] font-semibold text-[#ffffff]">{{productQuantities[items.id] || 0}}</p>
+                <button 
+                (click)="addToCart(items)"
+                class="hover:bg-white/30 focus:scale-[1.2] backdrop-blur-[10px] bg-opacity-100 rounded-full transition-all duration-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus w-[16px] h-[16px] md:w-[28px] md:h-[28px]" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M12 5l0 14" />
+                        <path d="M5 12l14 0" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

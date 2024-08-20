@@ -1,0 +1,13 @@
+<div class="relative w-full overflow-hidden rounded-xl h-[20vh] md:h-[40vh] xl:h-[60vh]">
+  <div class="flex transition-transform duration-500" [style.transform]="'translateX(-' + (currentIndex * 100) + '%)'">
+    <div *ngFor="let image of images" class="flex-none w-full">
+      <img [src]="image" class="w-full h-auto object-cover" />
+    </div>
+  </div>
+  <button (click)="prevSlide()" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">
+    ‹
+  </button>
+  <button (click)="nextSlide()" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">
+    ›
+  </button>
+</div>
