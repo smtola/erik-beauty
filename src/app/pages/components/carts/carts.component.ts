@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 export class CartsComponent {
   cartItems: { id: number, name: string, price: number,sourceImg:string, quantity: number,amount?: number }[] = [];
   totalAmount: number = 0;
-  isCheckout: boolean = true;
+  isCheckout: boolean = false;
   customer = {
     name: '',
     email: '',
