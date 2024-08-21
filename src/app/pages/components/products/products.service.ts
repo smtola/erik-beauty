@@ -58,13 +58,13 @@ export class ProductsService {
       id:9,
       name: 'Red fading repair facial mask',
       price: 19.99,
-      sourceImg: 'assets/images/products/pro_9.JPG',
+      sourceImg: 'assets/images/products/pro_8.JPG',
     },
     {
       id:10,
       name: 'Collagen cushion',
       price: 19.99,
-      sourceImg: 'assets/images/products/pro_10.JPG',
+      sourceImg: 'assets/images/products/pro_8.JPG',
     },
     {
       id:11,

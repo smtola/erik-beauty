@@ -1,8 +1,11 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { CartsComponent } from './pages/components/carts/carts.component';
+import { ProductDetailComponent } from './pages/components/products/product-detail/product-detail.component';
+import { ErrorComponent } from './pages/error/error.component';
 export const routes: Routes = [
-    { path:'', pathMatch: 'full', component: HomeComponent},
+    { path:'', component: HomeComponent},
     { path:'cart', component: CartsComponent },
-    { path:'**', component: HomeComponent}
+    { path:'product/detail/:id', component: ProductDetailComponent},
+    { path: '**', component: ErrorComponent}
 ];

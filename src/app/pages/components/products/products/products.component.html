@@ -6,7 +6,7 @@
             *ngFor="let items of products"
         >
         <div class="w-full max-sm:h-[30vh] shadow-lg overflow-hidden rounded-[2rem] md:rounded-[3rem] xl:rounded-[4rem]">
-            <a href="#" class="hover:scale-[1.2]">
+            <a routerLink="product/detail/1" class="hover:scale-[1.2]">
                 <img [src]="items.sourceImg" class="rounded-[2rem] md:rounded-[3rem] xl:rounded-[4rem] w-full h-full object-cover hover:scale-[1.2] hover:brightness-50 transition-all duration-500">
             </a>
         </div>
